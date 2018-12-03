@@ -2,34 +2,26 @@
   <section class="container">
     <div>
       <h1 class="title">Nuxt Vuex Module and Service pattern</h1>
-      <div>{{ eventList }}</div>
+      <div>{{ events }}</div>
     </div>
   </section>
 </template>
 
 <script>
-//import EventService from '@/services/EventService'
-import { mapMutations, mapGetters } from 'vuex'
+import { mapMutations, mapGetters, mapActions } from 'vuex'
 
 export default {
   computed: mapGetters({
-    events: 'events/eventList'
+    events: 'events/getEvents'
   }),
 
-  // created() {
-  //   EventService.getEvents()
-  // },
+  mounted() {
+    this.fetchEvents()
+  },
 
   methods: {
-    addTodo(e) {
-      var text = e.target.value
-      if (text.trim()) {
-        this.$store.commit('events/add', { text })
-      }
-      e.target.value = ''
-    },
-    ...mapMutations({
-      toggle: 'events/toggle'
+    ...mapActions({
+      fetchEvents: 'events/fetchEvents'
     })
   }
 }
@@ -49,7 +41,7 @@ export default {
     'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   display: block;
   font-weight: 300;
-  font-size: 100px;
+  font-size: 3rem;
   color: #35495e;
   letter-spacing: 1px;
 }
