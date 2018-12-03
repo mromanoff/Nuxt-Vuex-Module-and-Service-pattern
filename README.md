@@ -1,22 +1,17 @@
 # nuxt-vuex-service
 
-> nuxt vuex service pattern
+> nuxt vuex store module and service pattern
 
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
-$ yarn install
+$ npm install
+
+$ npm install -g json-server
+
+$ json-server--watch db.json --port 3001
 
 # serve with hot reload at localhost:3000
-$ yarn run dev
-
-# build for production and launch server
-$ yarn run build
-$ yarn start
-
-# generate static project
-$ yarn run generate
+$ npm run dev
 ```
-
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
